@@ -44,7 +44,7 @@
                                                         </form>
                                                     </div>
 
-                                                    <div class="cover-item" style="background-image: url({{ asset('assets/img/menu/caesar.jpg') }})" >
+                                                    <div class="cover-item" style="background-image: url({{ asset('assets/img/menu/cake.jpg') }})" >
                                                         <form action="#" method="POST">
                                                             <button  class="p-0 m-0" style="background: transparent;border:none"
                                                                 data-bs-toggle="tooltip" data-bs-placement="top" title="Remove Item">
@@ -55,15 +55,13 @@
                                                         </form>
                                                     </div>
 
-                                                    <div class="cover-item" style="background-image: url({{ asset('assets/img/menu/caesar.jpg') }})" >
-                                                        <form action="#" method="POST">
-                                                            <button  class="p-0 m-0" style="background: transparent;border:none"
-                                                                data-bs-toggle="tooltip" data-bs-placement="top" title="Remove Item">
-                                                                <i class="bi bi-dash px-2 my-4" 
-                                                                style="background:#b47200;color:white;border:1px solid transparent;border-radius:5%;">
-                                                                </i>
-                                                            </button>
-                                                        </form>
+                                                    <div class="cover-item" style="background-image: url({{ asset('assets/img/menu/mozzarella.jpg') }})" >
+                                                        <button  class="p-0 m-0" style="background: transparent;border:none"
+                                                            data-bs-toggle="tooltip" data-bs-placement="top" title="Remove Item">
+                                                            <i class="bi bi-dash px-2 my-4" 
+                                                            style="background:#b47200;color:white;border:1px solid transparent;border-radius:5%;">
+                                                            </i>
+                                                        </button>
                                                     </div>
 
                                             </div>
@@ -106,14 +104,11 @@
                                                             <h4></h4>
                                                             <p style="font-size: 22px">{{ substr($item->description, 0, 50) }}</p>
     
-                                                            <form wire:submit.prevent="orderItemStore" enctype="multipart/form-data">
-                                                                @csrf
-                                                                
+                                                           
                                                             
                                                                 <button type="submit" wire:key="{{$loop->index}}"  class="btn btn-dark " style="border-radius: 0%" data-bs-toggle="tooltip" data-bs-placement="top" title="Add Item To Order">
                                                                     Add To My Order
                                                                 </button>
-                                                            </form>
                                                         </div>
                                                     </div>
                                                     <div class="row py-1 ">
@@ -128,7 +123,7 @@
                                                                 :session_id="Session::getId()"
                                                                 :total_price="$item->price" :image="$item->image"
                                                                 :user_address="$address" -->
-                                                            
+                                                                <i class="bi bi-bookmark" style="font-size: 18px;cursor: pointer;color:white"></i>                                                            
                                                         </div>
                                                     </div>
                                                 </div>    

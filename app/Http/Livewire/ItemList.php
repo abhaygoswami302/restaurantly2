@@ -19,20 +19,20 @@ class ItemList extends Component
     {
         //dd(Session::getId());
         $this->orderItems = OrderItem::where('session_id', '=', Session::getId())
-                                    ->get();
+                                    ->latest()->get();
     }
 
 
     public function mount()
     {
-        $this->orderItems = OrderItem::where('session_id', '=', Session::getId())->get();
+        $this->orderItems = OrderItem::where('session_id', '=', Session::getId())->latest()->get();
       
     }
 
     
     public function render()
     {
-        $this->orderItems = OrderItem::where('session_id', '=', Session::getId())->get();
+        $this->orderItems = OrderItem::where('session_id', '=', Session::getId())->latest()->get();
 
         return view('livewire.item-list', ['orderItems' => $this->orderItems]);
     }

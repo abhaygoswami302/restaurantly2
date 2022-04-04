@@ -102,7 +102,7 @@
                                 <h4 class="py-4" style="color: #cda45e">Order Summary</h4>
                                     <div class="row">
                                         <div class="col-sm-12">
-                                            <hr>
+                                        <hr>
                                         </div>
                                         <div class="col-sm-6 py-2">
                                             <h6>Total Price : </h6>

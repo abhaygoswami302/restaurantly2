@@ -1,7 +1,9 @@
-<div class="row-fluid">
-                                 
+<div class="row-fluid" wire:poll wire:transition="slide-in">
+    @if (count($orderItems) > 0)                         
     <div class="col-lg-12 col-md-10 mb-4">
-        <div class="cover-container" wire:poll wire:transition="slide-in">
+        <div class="cover-container" >
+            
+                
             <h4 style="color: #cda45e">Your Order List</h4>
             <!-- START PANEL -->
         
@@ -20,4 +22,5 @@
 
         </div>
     </div>
+    @endif
 </div>

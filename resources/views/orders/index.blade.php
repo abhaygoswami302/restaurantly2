@@ -26,48 +26,8 @@
                                     {{ Session::get('message') }}
                                 </h5>
                                 @endif
-                                <div class="row-fluid">
-                                 
-                                        <div class="col-lg-12 col-md-10 mb-4">
-                                            <div class="cover-container">
-                                                <h4 style="color: #cda45e">Your Order List</h4>
-                                                <!-- START PANEL -->
-                                                
-                                                    <div class="cover-item" style="background-image: url({{ asset('assets/img/menu/caesar.jpg') }})" >
-                                                        <form action="#" method="POST">
-                                                            <button  class="p-0 m-0" style="background: transparent;border:none"
-                                                                data-bs-toggle="tooltip" data-bs-placement="top" title="Remove Item">
-                                                                <i class="bi bi-dash px-2 my-4" 
-                                                                style="background:#b47200;color:white;border:1px solid transparent;border-radius:5%;">
-                                                                </i>
-                                                            </button>
-                                                        </form>
-                                                    </div>
-
-                                                    <div class="cover-item" style="background-image: url({{ asset('assets/img/menu/cake.jpg') }})" >
-                                                        <form action="#" method="POST">
-                                                            <button  class="p-0 m-0" style="background: transparent;border:none"
-                                                                data-bs-toggle="tooltip" data-bs-placement="top" title="Remove Item">
-                                                                <i class="bi bi-dash px-2 my-4" 
-                                                                style="background:#b47200;color:white;border:1px solid transparent;border-radius:5%;">
-                                                                </i>
-                                                            </button>
-                                                        </form>
-                                                    </div>
-
-                                                    <div class="cover-item" style="background-image: url({{ asset('assets/img/menu/mozzarella.jpg') }})" >
-                                                        <button  class="p-0 m-0" style="background: transparent;border:none"
-                                                            data-bs-toggle="tooltip" data-bs-placement="top" title="Remove Item">
-                                                            <i class="bi bi-dash px-2 my-4" 
-                                                            style="background:#b47200;color:white;border:1px solid transparent;border-radius:5%;">
-                                                            </i>
-                                                        </button>
-                                                    </div>
-
-                                            </div>
-                                        </div>
-
-                                </div>
+                                
+                                <livewire:item-list :orderItems="$orderItems"/>
                             </div>
     
                             <div class="col-sm-8 ">
@@ -104,11 +64,13 @@
                                                             <h4></h4>
                                                             <p style="font-size: 22px">{{ substr($item->description, 0, 50) }}</p>
     
-                                                           
-                                                            
-                                                                <button type="submit" wire:key="{{$loop->index}}"  class="btn btn-dark " style="border-radius: 0%" data-bs-toggle="tooltip" data-bs-placement="top" title="Add Item To Order">
-                                                                    Add To My Order
-                                                                </button>
+                                                            <livewire:order-item-store :item_id="$item->id" :category_id="$item->category->id"
+                                                                :item_name="$item->name"
+                                                                :item_price="$item->price" :description="$item->description" :quantity="1" 
+                                                                :session_id="Session::getId()"
+                                                                :total_price="$item->price" :image="$item->image"
+                                                                :user_address="$address" >
+
                                                         </div>
                                                     </div>
                                                     <div class="row py-1 ">

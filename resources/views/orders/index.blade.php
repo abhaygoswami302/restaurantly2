@@ -27,7 +27,7 @@
                                 </h5>
                                 @endif
                                 
-                                <livewire:item-list :orderItems="$orderItems"/>
+                                <livewire:item-list/>
                             </div>
     
                             <div class="col-sm-8 ">

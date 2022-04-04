@@ -9,17 +9,16 @@ use Livewire\Component;
 
 class ItemList extends Component
 {
-    public $orderItems, $newList = [];
+    public $orderItems, $newList;
 
     public $listeners = [
         'itemStored' => 'handleItemStored'
     ];
 
-    public function handleItemStored($item_id)
+    public function handleItemStored()
     {
         //dd(Session::getId());
-        $this->newList = OrderItem::where('item_id', '=', $item_id)
-                                    ->where('session_id', '=', Session::getId())
+        $this->orderItems = OrderItem::where('session_id', '=', Session::getId())
                                     ->get();
     }
 
@@ -27,12 +26,14 @@ class ItemList extends Component
     public function mount()
     {
         $this->orderItems = OrderItem::where('session_id', '=', Session::getId())->get();
-        
+      
     }
 
     
     public function render()
     {
-        return view('livewire.item-list');
+        $this->orderItems = OrderItem::where('session_id', '=', Session::getId())->get();
+
+        return view('livewire.item-list', ['orderItems' => $this->orderItems]);
     }
 }

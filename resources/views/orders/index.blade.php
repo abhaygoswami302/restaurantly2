@@ -79,13 +79,12 @@
                                                             <small>${{ $item->price }}</small>
                                                         </div>
                                                         <div class="col-sm-2">
-                                                            <!--livewire:order-item-store-icon :item_id="$item->id" :category_id="$item->category->id"
+                                                            <livewire:order-item-store-icon :item_id="$item->id" :category_id="$item->category->id"
                                                                 :item_name="$item->name"
                                                                 :item_price="$item->price" :description="$item->description" :quantity="1" 
                                                                 :session_id="Session::getId()"
                                                                 :total_price="$item->price" :image="$item->image"
-                                                                :user_address="$address" -->
-                                                                <i class="bi bi-bookmark" style="font-size: 18px;cursor: pointer;color:white"></i>                                                            
+                                                                :user_address="$address">
                                                         </div>
                                                     </div>
                                                 </div>    

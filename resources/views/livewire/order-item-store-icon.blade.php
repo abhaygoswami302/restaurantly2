@@ -11,9 +11,9 @@
     <input type="hidden" wire:model="image" name="image" value="{{ $image }}">
     <input type="hidden" wire:model="user_address" name="user_address" value="">
 
-    <button type="submit"  class="btn btn-dark" wire:click="$emit('itemStored')" 
-            style="border-radius: 0%" data-bs-toggle="tooltip" data-bs-placement="top" 
-            title="Add Item To Order">
-    Add To My Order
-    </button>
+    <button type="submit" wire:click="$emit('itemStored')" class="p-0 m-0"
+     style="background: transparent;border:none;float: right;" data-bs-toggle="tooltip" data-bs-placement="top" title="Add Item To Order">
+        <i class="bi bi-bookmark" style="font-size: 18px;cursor: pointer;color:white"></i>
+    </button>                                                                
+
 </form>

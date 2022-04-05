@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Item;
+use App\Models\Order;
 use App\Models\OrderItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -57,7 +58,24 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $orderItems = OrderItem::where('session_id', '=', Session::getId())->latest()->get();
+
+        $total = 0;
+        foreach ($orderItems as $key => $orderItem) {
+            $total = $total + $orderItem->item_price;
+            $orderItem->status = 'ordered';
+            $orderItem->save();
+        }
+
+        $order = new Order();
+        $order->user_address = $request->user_address;
+        $order->session_id = Session::getId();
+        $order->email = $request->email;
+        $order->phone = $request->phone;
+        $order->total_price = $total;
+        $order->save();
+
+        return redirect()->route('order.index')->with('message', 'Order Places Successfully');
     }
 
     /**

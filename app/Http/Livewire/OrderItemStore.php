@@ -29,7 +29,6 @@ class OrderItemStore extends Component
    
         //dd($validatedData);
         $user_address = implode(',', $validatedData['user_address']);
-
       
         OrderItem::create([
             'item_id' => $validatedData['item_id'],

@@ -101,23 +101,14 @@
                             <div class="col-sm-4 py-2">
                                 <h4 class="py-4" style="color: #cda45e">Order Summary</h4>
                                     <div class="row">
-                                        <div class="col-sm-12">
-                                        <hr>
-                                        </div>
-                                        <div class="col-sm-6 py-2">
-                                            <h6>Total Price : </h6>
-                                        </div>
-                                        <div class="col-sm-6 py-2">
-                                            <h4 style="color: #cda45e">${{ $total }} Only</h4>
-                                        </div>
+                                        <livewire:order-summary />
+                                        
                                         <div class="col-sm-12">
                                             <hr>
                                         </div>
     
                                         <form action="{{ route('order.store') }}" method="POST">
                                             @csrf
-
-    
                                             <div class="col-sm-12 py-2">
                                                 <textarea name="user_address" id="user_address" cols="30" rows="2" class="form-control myinputclass">{{ $address['countryName'] }}, {{ $address['countryCode'] }}, {{ $address['regionCode'] }}, {{ $address['regionName'] }}, {{ $address['cityName'] }}, {{ $address['zipCode'] }}, {{ $address['isoCode'] }}, {{ $address['postalCode'] }}, {{ $address['latitude'] }}, {{ $address['longitude'] }}, {{ $address['metroCode'] }}, {{ $address['areaCode'] }}, {{ $address['timezone'] }}</textarea>
                                             </div>
